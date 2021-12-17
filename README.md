@@ -70,7 +70,7 @@ if (parser->parserStatus == HTTP_PARSE_OK) {    // Parser checks for errors
 
 // Parse headers
 parseHttpHeaders(parser, httpDataBuffer);
-HashMap headers = parser->headersMap;
+HashMap headers = parser->headers;
 printf("Header count: %d\n", getHashMapSize(headers));
 HashMapIterator headerIterator = getHashMapIterator(headers);
 while (hashMapHasNext(&headerIterator)) {
@@ -81,7 +81,7 @@ printf("\n");
 
 // Parse URL parameters
 parseHttpQueryParameters(parser, httpDataBuffer);
-HashMap params = parser->queryParametersMap;
+HashMap params = parser->queryParameters;
 printf("Params count: %d\n", getHashMapSize(params));
 HashMapIterator paramIterator = getHashMapIterator(params);
 while (hashMapHasNext(&paramIterator)) {
