@@ -43,7 +43,7 @@ target_link_libraries(${PROJECT_NAME}.elf HTTPParser)
 
 ### Usage
 
-***NOTE:*** Parser use split function. Character buffer
+***NOTE:*** Parser use split function. Character buffer will be spoiled
 
 ```c
 const char *testRequest =
