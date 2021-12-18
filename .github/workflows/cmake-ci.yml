@@ -20,19 +20,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-#    - name: Configure Library CMake
-#      # Configure CMake in a 'cmake-build-debug' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
-#      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-#      run: cmake -B ${{github.workspace}}/cmake-build-debug -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
-#
-#    - name: Configure Tests CMake
-#      run: cmake -B ${{github.workspace}}/Tests/cmake-build-debug -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+    - name: Configure Library CMake
+      # Configure CMake in a 'cmake-build-debug' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
+      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
+      run: cmake -B ${{github.workspace}}/cmake-build-debug -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Configure Tests CMake
+      run: cmake -B ${{github.workspace}}/Tests/cmake-build-debug -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build Library
-      run: cmake --build ${{github.workspace}}/cmake-build-debug --target all -- -j 9
+      run: cmake --build ${{github.workspace}}/cmake-build-debug --target all -- -j 9 && ls -a
 
     - name: Build Tests
-      run: cmake --build ${{github.workspace}}/Tests/cmake-build-debug --target all -- -j 9
+      run: cmake --build ${{github.workspace}}/Tests/cmake-build-debug --target all -- -j 9 && ls -a
 
     - name: Tests
       working-directory: ${{github.workspace}}/Tests/cmake-build-debug
