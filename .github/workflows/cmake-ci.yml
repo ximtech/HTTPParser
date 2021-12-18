@@ -32,20 +32,14 @@ jobs:
       run: ./Tests
 
     - name: Send mail
-      if: always()
+      if: failure()
       uses: dawidd6/action-send-mail@v3
       with:
-        # mail server settings
         server_address: smtp-relay.sendinblue.com
         server_port: 587
-        # user credentials
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        # email subject
         subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-        # email body as text
         body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-        # comma-separated string, send email to
         to: ximtech@inbox.lv
-        # from email name
         from: Github CI
