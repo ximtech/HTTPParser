@@ -27,7 +27,7 @@ jobs:
 
     - name: Build Library
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}/cmake-build-debug --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/cmake-build-debug --target all -- -j 9
       
     - name: Build Tests
       # Build your program with the given configuration
