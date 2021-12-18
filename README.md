@@ -1,5 +1,7 @@
 # HTTP Parser
 
+[![tests](https://github.com/ximtech/HTTPParser/actions/workflows/cmake-ci.yml/badge.svg)](https://github.com/ximtech/HTTPParser/actions/workflows/cmake-ci.yml)
+
 HTTP Parser provides the functionality to parse both HTTP requests and responses. Written in C and was created for
 working in embedded applications.
 
