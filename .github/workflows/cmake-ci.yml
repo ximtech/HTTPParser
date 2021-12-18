@@ -26,7 +26,7 @@ jobs:
       run: cmake -B ${{github.workspace}}/cmake-build-debug -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Configure Tests CMake
-      run: cd Tests && ls -a && cmake -B ${{github.workspace}}/Tests/cmake-build-debug -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cd Tests && cmake -B ${{github.workspace}}/Tests/cmake-build-debug -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build Library
       run: cmake --build ${{github.workspace}}/cmake-build-debug --target all -- -j 9
@@ -35,8 +35,8 @@ jobs:
       run: cd Tests && cmake --build ${{github.workspace}}/Tests/cmake-build-debug --target all -- -j 9
 
     - name: Tests
-      working-directory: ${{github.workspace}}
+      working-directory: ${{github.workspace}}/Tests/cmake-build-debug
       # Execute tests defined by the CMake configuration.  
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      run: cd Tests/cmake-build-debug && chmod +x Tests && ls -a && ./Tests
+      run: ./Tests
       
