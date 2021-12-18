@@ -32,7 +32,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/cmake-build-debug --config ${{env.BUILD_TYPE}}
 
     - name: Build Tests
-      run: cd Tests && cmake --build ${{github.workspace}}/Tests/cmake-build-debug --config ${{env.BUILD_TYPE}}
+      run: cmake -S ${{github.workspace}}/Tests --build ${{github.workspace}}/Tests/cmake-build-debug --config ${{env.BUILD_TYPE}}
 
     - name: Tests
       working-directory: ${{github.workspace}}/Tests/cmake-build-debug
