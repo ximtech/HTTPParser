@@ -30,5 +30,3 @@ jobs:
     - name: Tests
       working-directory: ${{github.workspace}}/Tests/cmake-build-debug
       run: ./Tests
-      env:
-        CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
