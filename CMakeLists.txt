@@ -19,18 +19,8 @@ set(SOURCE_FILES
         HTTPParser.c
         include/HTTPParser.h)
 
-set(CMAKE_MODULE_PATH "${HTTPParser_SOURCE_DIR}/cmake/coverage" ${CMAKE_MODULE_PATH})
-
-include(cmake/coverage/Findcodecov.cmake)
-include(cmake/coverage/FindGcov.cmake)
-include(cmake/coverage/FindLcov.cmake)
-
-find_package(codecov)
-
 add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES})
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
-
-add_coverage(${PROJECT_NAME})
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
