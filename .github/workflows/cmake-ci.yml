@@ -25,11 +25,14 @@ jobs:
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       run: cmake -B ${{github.workspace}}/cmake-build-debug -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
-    - name: Configure Tests CMake
-      run: cmake -B ${{github.workspace}}/Tests/cmake-build-debug -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
-
     - name: Build Library
       run: cmake --build ${{github.workspace}}/cmake-build-debug --target all -- -j 9 && ls -a
+
+    - name: Go to test directory
+      run: cd Tests && ls -a
+
+    - name: Configure Tests CMake
+      run: cmake -B ${{github.workspace}}/Tests/cmake-build-debug -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build Tests
       run: cmake --build ${{github.workspace}}/Tests/cmake-build-debug --target all -- -j 9 && ls -a
