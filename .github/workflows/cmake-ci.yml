@@ -32,11 +32,11 @@ jobs:
       run: cmake --build ${{github.workspace}}/cmake-build-debug --target all -- -j 9
 
     - name: Build Tests
-      run: cd Tests && cmake --build ${{github.workspace}}/cmake-build-debug --target all -- -j 9
+      run: cd Tests && cmake --build ${{github.workspace}}/Tests/cmake-build-debug --target all -- -j 9
 
     - name: Tests
       working-directory: ${{github.workspace}}
       # Execute tests defined by the CMake configuration.  
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
-      run: cd Tests/cmake-build-debug && ls -a
+      run: cd Tests/cmake-build-debug/Tests && ls -a
       
