@@ -108,7 +108,7 @@ void parseHttpHeaders(HTTPParser *httpParser, char *dataBuffer) {
 }
 
 void parseHttpQueryParameters(HTTPParser *httpParser, char *url) {
-    if (httpParser != NULL && isStringBlank(url)) return;
+    if (httpParser == NULL || isStringBlank(url)) return;
     initSingletonHashMap(&httpParser->queryParameters, HTTP_QUERY_PARAM_MAP_INITIAL_CAPACITY);
     hashMapClear(httpParser->queryParameters);
 
