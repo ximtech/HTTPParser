@@ -2,6 +2,7 @@
 
 [![tests](https://github.com/ximtech/HTTPParser/actions/workflows/cmake-ci.yml/badge.svg)](https://github.com/ximtech/HTTPParser/actions/workflows/cmake-ci.yml)
 [![codecov](https://codecov.io/gh/ximtech/HTTPParser/branch/main/graph/badge.svg?token=VEZG1RPTTL)](https://codecov.io/gh/ximtech/HTTPParser)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8f43042543a440f294836e4147a9683b)](https://www.codacy.com/gh/ximtech/HTTPParser/dashboard)
 
 HTTP Parser provides the functionality to parse both HTTP requests and responses. Written in C and was created for
 working in embedded applications.
