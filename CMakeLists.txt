@@ -15,6 +15,11 @@ CPMAddPackage(
         GITHUB_REPOSITORY ximtech/HashMap
         GIT_TAG origin/main)
 
+CPMAddPackage(
+        NAME StringUtils
+        GITHUB_REPOSITORY ximtech/StringUtils
+        GIT_TAG origin/main)
+
 set(SOURCE_FILES
         HTTPParser.c
         include/HTTPParser.h)
@@ -26,7 +31,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
 
-target_link_libraries(${PROJECT_NAME} Ethernet HashMap)
+target_link_libraries(${PROJECT_NAME} Ethernet HashMap StringUtils)
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}.h
         DESTINATION ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME})
